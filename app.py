@@ -25,7 +25,7 @@ create_database()
 
 st.set_page_config(
     page_title="Student Study Assistant",
-    page_icon="≡ƒÄô",
+    page_icon="🎓",
     layout="wide"
 )
 
@@ -55,18 +55,18 @@ if "plan" not in st.session_state:
 # SIDEBAR
 # =========================================================
 
-st.sidebar.title("≡ƒÄô Study Assistant")
+st.sidebar.title("🎓 Study Assistant")
 
 page = st.sidebar.radio(
     "Navigation",
     [
-        "≡ƒÅá Dashboard",
-        "≡ƒôÜ Study Planner",
-        "≡ƒô¥ Quiz",
-        "≡ƒôè Progress",
-        "≡ƒÄ» Goals",
-        "ΓÅ▒∩╕Å Study Timer",
-        "≡ƒùÆ∩╕Å Notes"
+        "🏠 Dashboard",
+        "📚 Study Planner",
+        "📝 Quiz",
+        "📊 Progress",
+        "🎯 Goals",
+        "⏱️ Study Timer",
+        "🗒️ Notes"
     ],
     key="page"
 )
@@ -74,17 +74,17 @@ page = st.sidebar.radio(
 st.sidebar.divider()
 
 st.sidebar.info(
-    "Study smarter. Practice regularly. Track your progress. ≡ƒÜÇ"
+    "Study smarter. Practice regularly. Track your progress. 🚀"
 )
 
 # =========================================================
 # DASHBOARD
 # =========================================================
-if page == "≡ƒÅá Dashboard":
+if page == "🏠 Dashboard":
 
-    st.title("≡ƒÄô Student Study Assistant")
+    st.title("🎓 Student Study Assistant")
 
-    st.subheader("Welcome back! ≡ƒæï")
+    st.subheader("Welcome back! 👋")
 
     st.write(
         "Your personal study space to plan, practice and track your learning."
@@ -103,41 +103,41 @@ if page == "≡ƒÅá Dashboard":
     with col1:
 
         st.metric(
-            "≡ƒÄ» Goals Completed",
+            "🎯 Goals Completed",
             completed_goals
         )
 
     with col2:
 
         st.metric(
-            "≡ƒô¥ Quizzes Taken",
+            "📝 Quizzes Taken",
             quizzes
         )
 
     with col3:
 
         st.metric(
-            "≡ƒôê Average Score",
+            "📈 Average Score",
             f"{average_score:.0f}%"
         )
 
     with col4:
 
         st.metric(
-            "ΓÅ▒∩╕Å Study Time",
+            "⏱️ Study Time",
             f"{total_minutes} min"
         )
 
     st.divider()
 
     # Quick start
-    st.subheader("≡ƒÜÇ Quick Start")
+    st.subheader("🚀 Quick Start")
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
         if st.button(
-            "≡ƒôÜ Study Planner",
+            "📚 Study Planner",
             use_container_width=True
         ):
             st.session_state.quick_action = "planner"
@@ -146,7 +146,7 @@ if page == "≡ƒÅá Dashboard":
 
     with col2:
         if st.button(
-            "≡ƒôè Study Summary",
+            "📊 Study Summary",
             use_container_width=True
         ):
             st.session_state.quick_action = "summary"
@@ -155,7 +155,7 @@ if page == "≡ƒÅá Dashboard":
 
     with col3:
         if st.button(
-            "≡ƒÆí Study Tip",
+            "💡 Study Tip",
             use_container_width=True
         ):
             st.session_state.quick_action = "tip"
@@ -165,19 +165,19 @@ if page == "≡ƒÅá Dashboard":
     st.divider()
 
     if st.session_state.get("quick_action") == "planner":
-        st.subheader("≡ƒôÜ Study Planner")
+        st.subheader("📚 Study Planner")
         st.info(
-            "Go to **≡ƒôÜ Study Planner** from the sidebar "
+            "Go to **📚 Study Planner** from the sidebar "
             "to create your AI-powered study plan."
         )
 
     elif st.session_state.get("quick_action") == "summary":
-        st.subheader("≡ƒôè Study Summary")
+        st.subheader("📊 Study Summary")
 
         if total_minutes == 0:
             st.info(
                 "Start your first study session "
-                "to see your progress here! ≡ƒÜÇ"
+                "to see your progress here! 🚀"
             )
         else:
             hours = total_minutes // 60
@@ -185,40 +185,40 @@ if page == "≡ƒÅá Dashboard":
 
             st.success(
                 f"You have studied for **{hours} hours "
-                f"and {minutes} minutes** in total. ≡ƒÄë"
+                f"and {minutes} minutes** in total. 🎉"
             )
 
     elif st.session_state.get("quick_action") == "tip":
-        st.subheader("≡ƒÆí Study Tip")
+        st.subheader("💡 Study Tip")
 
         st.success(
             "Don't just read the solution. "
-            "Close it and try to write the code yourself. ≡ƒÆ╗"
+            "Close it and try to write the code yourself. 💻"
         )
 
 # =========================================================
 # STUDY PLANNER
 # =========================================================
 
-elif page == "≡ƒôÜ Study Planner":
+elif page == "📚 Study Planner":
 
-    st.title("≡ƒñû AI Study Planner")
+    st.title("🤖 AI Study Planner")
 
     st.write(
         "Create a personalized study plan using AI."
     )
 
     subject = st.text_input(
-        "≡ƒôÜ What do you want to study?",
+        "📚 What do you want to study?",
         placeholder="Example: Python, DSA, DBMS"
     )
 
     exam_date = st.date_input(
-        "≡ƒôà When is your exam?"
+        "📅 When is your exam?"
     )
 
     difficulty = st.selectbox(
-        "≡ƒÄ» Difficulty level",
+        "🎯 Difficulty level",
         [
             "Beginner",
             "Intermediate",
@@ -227,13 +227,13 @@ elif page == "≡ƒôÜ Study Planner":
     )
 
     minutes = st.slider(
-        "ΓÅ▒∩╕Å Study time per day",
+        "⏱️ Study time per day",
         15,
         180,
         45
     )
 
-    if st.button("Γ£¿ Generate AI Study Plan"):
+    if st.button("✨ Generate AI Study Plan"):
 
         if not subject.strip():
 
@@ -244,7 +244,7 @@ elif page == "≡ƒôÜ Study Planner":
         else:
 
             with st.spinner(
-                "≡ƒñû AI is creating your study plan..."
+                "🤖 AI is creating your study plan..."
             ):
 
                 try:
@@ -268,7 +268,7 @@ elif page == "≡ƒôÜ Study Planner":
 
         st.divider()
 
-        st.subheader("≡ƒùô∩╕Å Your AI Study Plan")
+        st.subheader("🗓️ Your AI Study Plan")
 
         st.markdown(
             st.session_state.ai_plan
@@ -278,9 +278,9 @@ elif page == "≡ƒôÜ Study Planner":
 # =========================================================
 # QUIZ
 # =========================================================
-elif page == "≡ƒô¥ Quiz":
+elif page == "📝 Quiz":
 
-    st.title("≡ƒô¥ Practice Quiz")
+    st.title("📝 Practice Quiz")
 
     st.write(
         "Test your basic programming knowledge."
@@ -359,7 +359,7 @@ elif page == "≡ƒô¥ Quiz":
 
         answers.append(answer)
 
-    if st.button("≡ƒÄ» Submit Quiz"):
+    if st.button("🎯 Submit Quiz"):
 
         score = 0
 
@@ -385,7 +385,7 @@ elif page == "≡ƒô¥ Quiz":
         st.divider()
 
         st.subheader(
-            f"≡ƒÄë Your Score: {score}/{len(questions)}"
+            f"🎉 Your Score: {score}/{len(questions)}"
         )
 
         st.progress(
@@ -399,27 +399,27 @@ elif page == "≡ƒô¥ Quiz":
         if percentage >= 80:
 
             st.success(
-                "Excellent work! ≡ƒîƒ"
+                "Excellent work! 🌟"
             )
 
         elif percentage >= 50:
 
             st.warning(
-                "Good effort! Keep practicing. ≡ƒÆ¬"
+                "Good effort! Keep practicing. 💪"
             )
 
         else:
 
             st.error(
-                "Revise the concepts and try again. ≡ƒôÜ"
+                "Revise the concepts and try again. 📚"
             )
 
 # =========================================================
 # PROGRESS
 # =========================================================
-elif page == "≡ƒôè Progress":
+elif page == "📊 Progress":
 
-    st.title("≡ƒôè My Progress")
+    st.title("📊 My Progress")
 
     st.write(
         "Track your learning performance with visual analytics."
@@ -470,25 +470,25 @@ elif page == "≡ƒôè Progress":
 
     with col1:
         st.metric(
-            "≡ƒô¥ Quizzes",
+            "📝 Quizzes",
             total_quizzes
         )
 
     with col2:
         st.metric(
-            "≡ƒôê Average Score",
+            "📈 Average Score",
             f"{average_score:.0f}%"
         )
 
     with col3:
         st.metric(
-            "≡ƒÅå Best Score",
+            "🏆 Best Score",
             f"{best_score:.0f}%"
         )
 
     with col4:
         st.metric(
-            "ΓÅ▒∩╕Å Study Time",
+            "⏱️ Study Time",
             f"{total_minutes} min"
         )
 
@@ -498,7 +498,7 @@ elif page == "≡ƒôè Progress":
     # QUIZ PERFORMANCE CHART
     # =====================================================
 
-    st.subheader("≡ƒôê Quiz Performance")
+    st.subheader("📈 Quiz Performance")
 
     if scores:
 
@@ -523,7 +523,7 @@ elif page == "≡ƒôè Progress":
     # STUDY TIME CHART
     # =====================================================
 
-    st.subheader("ΓÅ▒∩╕Å Study Time")
+    st.subheader("⏱️ Study Time")
 
     if sessions:
 
@@ -548,7 +548,7 @@ elif page == "≡ƒôè Progress":
     # GOAL PROGRESS
     # =====================================================
 
-    st.subheader("≡ƒÄ» Goal Completion")
+    st.subheader("🎯 Goal Completion")
 
     if total_goals == 0:
 
@@ -580,7 +580,7 @@ elif page == "≡ƒôè Progress":
     # QUIZ HISTORY
     # =====================================================
 
-    st.subheader("≡ƒô¥ Quiz History")
+    st.subheader("📝 Quiz History")
 
     if scores:
 
@@ -599,7 +599,7 @@ elif page == "≡ƒôè Progress":
             )
 
             st.caption(
-                f"≡ƒôà {quiz_date}"
+                f"📅 {quiz_date}"
             )
 
     else:
@@ -612,7 +612,7 @@ elif page == "≡ƒôè Progress":
     # STUDY HISTORY
     # =====================================================
 
-    st.subheader("≡ƒôÜ Study History")
+    st.subheader("📚 Study History")
 
     if sessions:
 
@@ -622,11 +622,11 @@ elif page == "≡ƒôè Progress":
             session_date = session[2]
 
             st.write(
-                f"≡ƒôÜ **{session_minutes} minutes**"
+                f"📚 **{session_minutes} minutes**"
             )
 
             st.caption(
-                f"≡ƒôà {session_date}"
+                f"📅 {session_date}"
             )
 
     else:
@@ -640,16 +640,16 @@ elif page == "≡ƒôè Progress":
 # STUDY TIMER
 # =========================================================
 
-elif page == "ΓÅ▒∩╕Å Study Timer":
+elif page == "⏱️ Study Timer":
 
-    st.title("ΓÅ▒∩╕Å Study Timer")
+    st.title("⏱️ Study Timer")
 
     st.write(
-        "Record your study sessions and build a consistent habit. ≡ƒôÜ"
+        "Record your study sessions and build a consistent habit. 📚"
     )
 
     minutes = st.number_input(
-        "ΓÅ▒∩╕Å Study duration (minutes)",
+        "⏱️ Study duration (minutes)",
         min_value=1,
         max_value=180,
         value=25
@@ -659,7 +659,7 @@ elif page == "ΓÅ▒∩╕Å Study Timer":
         f"Your study session: {minutes} minutes"
     )
 
-    if st.button("Γû╢∩╕Å Start Study Session"):
+    if st.button("▶️ Start Study Session"):
 
         session_date = datetime.now().strftime(
             "%d-%m-%Y %H:%M"
@@ -671,12 +671,12 @@ elif page == "ΓÅ▒∩╕Å Study Timer":
         )
 
         st.success(
-            f"Study session of {minutes} minutes recorded! ≡ƒÄë"
+            f"Study session of {minutes} minutes recorded! 🎉"
         )
 
     st.divider()
 
-    st.subheader("≡ƒôÜ Study History")
+    st.subheader("📚 Study History")
 
     sessions = get_study_sessions()
 
@@ -693,7 +693,7 @@ elif page == "ΓÅ▒∩╕Å Study Timer":
         )
 
         st.metric(
-            "ΓÅ▒∩╕Å Total Study Time",
+            "⏱️ Total Study Time",
             f"{total_minutes} minutes"
         )
 
@@ -706,11 +706,11 @@ elif page == "ΓÅ▒∩╕Å Study Timer":
             session_date = session[2]
 
             st.write(
-                f"≡ƒôÜ **{session_minutes} minutes**"
+                f"📚 **{session_minutes} minutes**"
             )
 
             st.caption(
-                f"≡ƒòÉ {session_date}"
+                f"🕒 {session_date}"
             )
 
             st.divider()
@@ -721,26 +721,26 @@ elif page == "ΓÅ▒∩╕Å Study Timer":
 # NOTES
 # =========================================================
 
-elif page == "≡ƒùÆ∩╕Å Notes":
+elif page == "🗒️ Notes":
 
-    st.title("≡ƒùÆ∩╕Å My Notes")
+    st.title("🗒️ My Notes")
 
     st.write(
         "Create and save your study notes."
     )
 
     note_title = st.text_input(
-        "≡ƒôî Note title",
+        "📌 Note title",
         placeholder="Example: Python Loops"
     )
 
     note_content = st.text_area(
-        "≡ƒô¥ Write your notes",
+        "📝 Write your notes",
         height=200,
         placeholder="Write your important concepts here..."
     )
 
-    if st.button("≡ƒÆ╛ Save Note"):
+    if st.button("💾 Save Note"):
 
         if note_title and note_content:
 
@@ -755,7 +755,7 @@ elif page == "≡ƒùÆ∩╕Å Notes":
             )
 
             st.success(
-                "Note saved successfully! ≡ƒÄë"
+                "Note saved successfully! 🎉"
             )
 
         else:
@@ -766,7 +766,7 @@ elif page == "≡ƒùÆ∩╕Å Notes":
 
     st.divider()
 
-    st.subheader("≡ƒôÜ Saved Notes")
+    st.subheader("📚 Saved Notes")
 
     notes = get_notes()
 
@@ -786,7 +786,7 @@ elif page == "≡ƒùÆ∩╕Å Notes":
             created_at = note[3]
 
             with st.expander(
-                f"≡ƒôî {title}"
+                f"📌 {title}"
             ):
 
                 st.write(content)
